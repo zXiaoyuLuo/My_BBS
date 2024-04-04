@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My BBS - Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 800px; margin: auto; }
+        .post { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #ccc; }
+        .post h2 { margin-top: 0; }
+        .post p { white-space: pre-wrap; }
+        .nav { text-align: right; margin-bottom: 20px; }
+        .nav a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="{{ url_for('post') }}">Post a new message</a>
+        </div>
+        {% for post in posts %}
+            <div class="post">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
